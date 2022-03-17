@@ -7,5 +7,5 @@ spl_autoload_register('myAutoLoader');
 
 function myAutoLoader ($class_name) 
 {
-    require_once 'library/' . $class_name . '.php';
+    require_once 'classes/' . $class_name . '.php';
 }
