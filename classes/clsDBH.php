@@ -14,7 +14,7 @@ class clsDBH
     public function __construct()
     {
         // set data source name (DSN)
-        $dsn = 'mysql:host=' . $this->host . 'dbname=' . $this->db_name;
+        $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->db_name;
 
         // set options
         $options = array(
@@ -30,6 +30,7 @@ class clsDBH
         catch(PDOException $e)
         {
             $this->error = $e->getMessage();
+            echo $this->error;
         }
     }
 
