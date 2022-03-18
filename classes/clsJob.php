@@ -62,4 +62,19 @@ class clsJob
 
         return $row;
     }
+
+    // get job listing
+    public function getJob($job_id)
+    {
+        $this->db->query("SELECT * FROM jobs
+        WHERE job_id = :job_id;");
+
+        $this->db->bind(':job_id', $job_id);
+
+        // assign the row
+        $row = $this->db->single();
+
+        return $row;
+    }
+
 }
