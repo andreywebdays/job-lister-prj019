@@ -1,11 +1,20 @@
 <?php include_once '../includes/incHeader.php'; ?>
 
     <div class="jumbotron">
-        <h1>Jumbotron heading</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+        <h1>Find a Job</h1>
+        <form method="GET" action="index.php">
+            <select name="category" class="form-control">
+                <option value="0">Choose Category</option>
+                <?php foreach($categories as $category): ?>
+                    <option value="<?php echo $category->category_id; ?>"><?php echo $category->category_name; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <br>
+            <input type="submit" class="btn btn-lg btn-success" value="Find">
+        </form>
     </div>
 
+    <h3><?php echo $title; ?></h3>
     <?php foreach($jobs as $job): ?>
         <div class="row marketing">
             <div class="col-md-10">
