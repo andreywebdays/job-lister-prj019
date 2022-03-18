@@ -123,4 +123,41 @@ class clsJob
             return false;
         }
     }
+
+    // update job
+    public function updateJob($job_id, $data)
+    {
+        // insert query
+        $this->db->query("UPDATE jobs
+            SET
+            category_id = :category_id,
+            job_title = :job_title,
+            job_company = :job_company,
+            job_desc = :job_desc,
+            job_location = :job_location,
+            job_salary = :job_salary,
+            job_contact_user = :job_contact_user,
+            job_contact_email = :job_contact_email
+            WHERE job_id = $job_id");
+
+        // bind data
+        $this->db->bind(':category_id', $data['category_id']);
+        $this->db->bind(':job_title', $data['job_title']);
+        $this->db->bind(':job_company', $data['job_company']);
+        $this->db->bind(':job_desc', $data['job_desc']);
+        $this->db->bind(':job_location', $data['job_location']);
+        $this->db->bind(':job_salary', $data['job_salary']);
+        $this->db->bind(':job_contact_user', $data['job_contact_user']);
+        $this->db->bind(':job_contact_email', $data['job_contact_email']);
+
+        // execute
+        if ($this->db->execute()) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
