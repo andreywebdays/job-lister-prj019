@@ -107,4 +107,20 @@ class clsJob
         }
     }
 
+    // delete job
+    public function deleteJob($del_id)
+    {
+        // delete query
+        $this->db->query("DELETE FROM jobs WHERE job_id = $del_id;");
+
+        // execute
+        if ($this->db->execute()) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
