@@ -77,4 +77,34 @@ class clsJob
         return $row;
     }
 
+    // create job
+    public function createJob($data)
+    {
+        // insert query
+        $this->db->query("INSERT INTO jobs (category_id, job_title, job_company, 
+            job_desc, job_location, job_salary, job_contact_user, job_contact_email)
+            VALUES (:category_id, :job_title, :job_company, :job_desc, 
+            :job_location, :job_salary, :job_contact_user, :job_contact_email);");
+
+        // bind data
+        $this->db->bind(':category_id', $data['category_id']);
+        $this->db->bind(':job_title', $data['job_title']);
+        $this->db->bind(':job_company', $data['job_company']);
+        $this->db->bind(':job_desc', $data['job_desc']);
+        $this->db->bind(':job_location', $data['job_location']);
+        $this->db->bind(':job_salary', $data['job_salary']);
+        $this->db->bind(':job_contact_user', $data['job_contact_user']);
+        $this->db->bind(':job_contact_email', $data['job_contact_email']);
+
+        // execute
+        if ($this->db->execute()) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }
