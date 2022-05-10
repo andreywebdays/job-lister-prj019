@@ -7,8 +7,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE IF NOT EXISTS `joblister` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `joblister`;
+CREATE DATABASE IF NOT EXISTS `prj019` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `prj019`;
 
 CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
